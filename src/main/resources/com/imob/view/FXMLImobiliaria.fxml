@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="570.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imob.view.Imobiliaria">
+<AnchorPane prefHeight="570.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imob.view.FXMLImobiliariaController">
    <children>
       <TableView layoutX="26.0" layoutY="119.0" prefHeight="381.0" prefWidth="823.0">
          <columns>
