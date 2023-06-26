@@ -1,17 +1,17 @@
 package com.imob.model.domain;
 
-/**
- *
- * @author
- */
-public class Imobiliaria extends PessoaJuridica{
-    
-    //atributos
+public class Imobiliaria extends PessoaJuridica {
+
     private int id_Imobiliaria;
     private int id_Codigo_imobiliaria;
     private int numero_Creci;
-    
-    //get e set
+
+    public Imobiliaria(int id_Imobiliaria, int id_Codigo_imobiliaria, int numero_Creci) {
+        super();
+        this.id_Imobiliaria = id_Imobiliaria;
+        this.id_Codigo_imobiliaria = id_Codigo_imobiliaria;
+        this.numero_Creci = numero_Creci;
+    }
 
     public int getId_Imobiliaria() {
         return id_Imobiliaria;
@@ -36,5 +36,4 @@ public class Imobiliaria extends PessoaJuridica{
     public void setNumero_Creci(int numero_Creci) {
         this.numero_Creci = numero_Creci;
     }
-    
 }
