@@ -8,11 +8,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,77 +28,100 @@ public class FXMLImobiliariaController implements Initializable {
     private ImobiliariaDAO imobiliariaDAO = new ImobiliariaDAO(connection);
 
     @FXML
-    private Button lblFecharImobiliaria;
+    private TableView<Imobiliaria> tableViewImobiliaria;
+    @FXML
+    private TableColumn<Imobiliaria, Integer> tbCreci;
+    @FXML
+    private TableColumn<Imobiliaria, Integer> tbIdImobiliaria;
+    @FXML
+    private TableColumn<Imobiliaria, Integer> tbCodigoImobiliaria;
+    @FXML
+    private Button btInserir;
+    @FXML
+    private Button btPesquisar;
+    @FXML
+    private Button btAtualizar;
+    @FXML
+    private Button btDeletar;
+    @FXML
+    private Label lblCodigoCreci;
+    @FXML
+    private TextField tfCodigoCreci;
+    @FXML
+    private Label lblCodigoImobiliaria;
+    @FXML
+    private TextField tfIdImobiliaria;
+    @FXML
+    private TextField tfCodigoImobiliaria;
+
+    public FXMLImobiliariaController(TableView<Imobiliaria> tableViewImobiliaria) {
+        this.tableViewImobiliaria = tableViewImobiliaria;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imobiliariaDAO.setConnection(connection);
     }
 
-
     @FXML
-    private Button lblFecharImobiliaria(ActionEvent event) {
-        Stage st = (Stage) lblFecharImobiliaria.getScene().getWindow();
-        st.close();
-        return null;
+    private void fecharImobiliaria(MouseEvent event) {
+        Stage stage = (Stage) lblCodigoImobiliaria.getScene().getWindow();
+        stage.close();
     }
 
-    // Construtor
-    public FXMLImobiliariaController() {
-        // Configurar conexão com o banco de dados
-        String url = "jdbc:mysql://localhost:3306/bd_imob";
-        String username = "root";
-        String password = "7273";
+    @FXML
+    private void adicionarImobiliaria(ActionEvent event) {
+        int id_Codigo_imobiliaria = Integer.parseInt(tfCodigoImobiliaria.getText());
+        int numero_Creci = Integer.parseInt(tfCodigoCreci.getText());
+        int id_imobiliaria = Integer.parseInt(tfIdImobiliaria.getText());
+
+        Imobiliaria imobiliaria = new Imobiliaria(id_Codigo_imobiliaria, numero_Creci, id_imobiliaria);
 
         try {
-            Connection connection = DriverManager.getConnection(url, username, password);
-            imobiliariaDAO = new ImobiliariaDAO(connection);
+            imobiliariaDAO.inserirImobiliaria(imobiliaria);
         } catch (SQLException e) {
-            System.out.println("Erro ao conectar ao banco de dados: " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
     @FXML
-    // Método para adicionar uma nova imobiliária
-    public void adicionarImobiliaria(int id_Codigo_imobiliaria, int numero_Creci) {
-        Imobiliaria imobiliaria = new Imobiliaria(0, id_Codigo_imobiliaria, numero_Creci);
+    private void atualizarImobiliaria(ActionEvent event) {
+        int id_Codigo_imobiliaria = Integer.parseInt(tfCodigoImobiliaria.getText());
+        int numero_Creci = Integer.parseInt(tfCodigoCreci.getText());
+        int id_imobiliaria = Integer.parseInt(tfIdImobiliaria.getText());
 
-        imobiliariaDAO.inserirImobiliaria(imobiliaria);
-        System.out.println("Imobiliária adicionada com sucesso!");
+        Imobiliaria imobiliaria = new Imobiliaria(id_Codigo_imobiliaria, numero_Creci, id_imobiliaria);
+
+        try {
+            imobiliariaDAO.atualizarImobiliaria(imobiliaria);
+            System.out.println("Imobiliária atualizada com sucesso!");
+        } catch (SQLException e) {
+            System.out.println("Erro ao atualizar imobiliária: " + e.getMessage());
+        }
     }
 
     @FXML
-    // Método para atualizar uma imobiliária existente
-    public void atualizarImobiliaria(int id_Imobiliaria, int id_Codigo_imobiliaria, int numero_Creci) {
-        Imobiliaria imobiliaria = new Imobiliaria(id_Imobiliaria, id_Codigo_imobiliaria, numero_Creci);
+    private void excluirImobiliaria(ActionEvent event) {
+        int id_imobiliaria = Integer.parseInt(tfIdImobiliaria.getText());
 
-        imobiliariaDAO.atualizarImobiliaria(imobiliaria);
-        System.out.println("Imobiliária atualizada com sucesso!");
+        try {
+            Imobiliaria imobiliaria = new Imobiliaria(id_imobiliaria, 0, 0);
+            imobiliariaDAO.excluirImobiliaria(imobiliaria);
+            System.out.println("Imobiliária excluída com sucesso!");
+        } catch (SQLException e) {
+            System.out.println("Erro ao excluir imobiliária: " + e.getMessage());
+        }
     }
 
-    @FXML
-    // Método para excluir uma imobiliária
-    public void excluirImobiliaria(int id_Imobiliaria) {
-        Imobiliaria imobiliaria = new Imobiliaria(id_Imobiliaria, 0, 0);
-        imobiliariaDAO.excluirImobiliaria(imobiliaria);
-        System.out.println("Imobiliária excluída com sucesso!");
-    }
-
-    @FXML
-    // Método para buscar todas as imobiliárias
-    public List<Imobiliaria> buscarTodasImobiliaria() {
-        return imobiliariaDAO.buscarTodasImobiliaria();
-    }
-
-    public void adicionarImobiliaria(ActionEvent actionEvent) {
+    private List<Imobiliaria> buscarTodasImobiliaria() {
+        try {
+            return imobiliariaDAO.buscarTodasImobiliaria();
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar imobiliárias: " + e.getMessage());
+            return null;
+        }
     }
 
     public void pesquisarImobiliaria(ActionEvent actionEvent) {
-    }
-
-    public void atualizarImobiliaria(ActionEvent actionEvent) {
-    }
-
-    public void excluirImobiliaria(ActionEvent actionEvent) {
     }
 }

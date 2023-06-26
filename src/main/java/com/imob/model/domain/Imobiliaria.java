@@ -36,4 +36,5 @@ public class Imobiliaria extends PessoaJuridica {
     public void setNumero_Creci(int numero_Creci) {
         this.numero_Creci = numero_Creci;
     }
+
 }

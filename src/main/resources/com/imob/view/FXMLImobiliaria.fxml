@@ -18,13 +18,13 @@
       <Button fx:id="btInserir" layoutX="26.0" layoutY="531.0" mnemonicParsing="false" onAction="#adicionarImobiliaria" text="INSERIR" />
       <Button fx:id="btPesquisar" layoutX="95.0" layoutY="531.0" mnemonicParsing="false" onAction="#pesquisarImobiliaria" text="PESQUISAR" />
       <Button fx:id="btAtualizar" layoutX="179.0" layoutY="531.0" mnemonicParsing="false" onAction="#atualizarImobiliaria" text="ATUALIZAR" />
-      <Button fx:id="btDetetar" layoutX="269.0" layoutY="531.0" mnemonicParsing="false" onAction="#excluirImobiliaria" text="DELETAR" />
+      <Button fx:id="btDeletar" layoutX="269.0" layoutY="531.0" mnemonicParsing="false" onAction="#excluirImobiliaria" text="DELETAR" />
       <Label fx:id="lblCodigoCreci" layoutX="26.0" layoutY="14.0" text="Código Creci" />
-      <TextField fx:id="btCodigoCreci" layoutX="26.0" layoutY="31.0" />
+      <TextField fx:id="tfCodigoCreci" layoutX="26.0" layoutY="31.0" />
       <Label fx:id="lblImobiliaria" layoutX="195.0" layoutY="14.0" text="ID Imobiliaria" />
       <Label fx:id="lblCodigoImobiliaria" layoutX="369.0" layoutY="14.0" text="Código Imobiliaria" />
-      <TextField fx:id="btIdImobiliaria" layoutX="195.0" layoutY="31.0" />
-      <TextField fx:id="btCodigoImobiliaria" layoutX="369.0" layoutY="31.0" />
-      <Button fx:id="lblFecharImobiliaria" layoutX="553.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="34.0" text="X" />
+      <TextField fx:id="tfIdImobiliaria" layoutX="195.0" layoutY="31.0" />
+      <TextField fx:id="tfCodigoImobiliaria" layoutX="369.0" layoutY="31.0" />
+      <Button fx:id="btFecharImobiliaria" layoutX="553.0" layoutY="14.0" mnemonicParsing="false" onAction="#fecharImobiliaria" prefHeight="25.0" prefWidth="34.0" text="X" />
    </children>
 </AnchorPane>
