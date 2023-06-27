@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -6,25 +7,34 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="570.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imob.view.FXMLImobiliariaController">
+<AnchorPane prefHeight="583.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imob.view.FXMLImobiliariaController">
    <children>
-      <TableView layoutX="26.0" layoutY="67.0" prefHeight="453.0" prefWidth="530.0">
+      <TableView fx:id="tableViewImobiliaria" layoutX="10.0" layoutY="234.0" prefHeight="300.0" prefWidth="685.0">
          <columns>
-            <TableColumn fx:id="tbCreci" prefWidth="164.0" text="Creci" />
-            <TableColumn fx:id="tbIdImobiliaria" prefWidth="195.0" text="ID Imobiliaria" />
-            <TableColumn fx:id="tbCodigoImobiliaria" prefWidth="170.0" text="Código Imobiliaria" />
+            <TableColumn fx:id="tbCreci" prefWidth="75.0" text="Creci" />
+            <TableColumn fx:id="tbIdImobiliaria" prefWidth="114.0" text="ID Imobiliaria" />
+            <TableColumn fx:id="tbCodigoImobiliaria" prefWidth="128.0" text="Codigo Imobiliaria" />
+            <TableColumn fx:id="tbPessoaPJ" prefWidth="133.0" text="Pessoa Juridica ID" />
+            <TableColumn fx:id="tbPessoaIdPessoa" prefWidth="131.0" text="Pessoa ID" />
+            <TableColumn fx:id="tbPagComissao" prefWidth="103.0" text="Pagamento Comissao ID" />
          </columns>
       </TableView>
-      <Button fx:id="btInserir" layoutX="26.0" layoutY="531.0" mnemonicParsing="false" onAction="#adicionarImobiliaria" text="INSERIR" />
-      <Button fx:id="btPesquisar" layoutX="95.0" layoutY="531.0" mnemonicParsing="false" onAction="#buscarTodasImobiliaria" text="PESQUISAR" />
-      <Button fx:id="btAtualizar" layoutX="179.0" layoutY="531.0" mnemonicParsing="false" onAction="#atualizarImobiliaria" text="ATUALIZAR" />
-      <Button fx:id="btDeletar" layoutX="269.0" layoutY="531.0" mnemonicParsing="false" onAction="#excluirImobiliaria" text="DELETAR" />
-      <Label fx:id="lblCodigoCreci" layoutX="26.0" layoutY="14.0" text="Código Creci" />
-      <TextField fx:id="tfCodigoCreci" layoutX="26.0" layoutY="31.0" />
-      <Label fx:id="lblImobiliaria" layoutX="195.0" layoutY="14.0" text="ID Imobiliaria" />
-      <Label fx:id="lblCodigoImobiliaria" layoutX="369.0" layoutY="14.0" text="Código Imobiliaria" />
-      <TextField fx:id="tfIdImobiliaria" layoutX="195.0" layoutY="31.0" />
-      <TextField fx:id="tfCodigoImobiliaria" layoutX="369.0" layoutY="31.0" />
-      <Button fx:id="btFecharImobiliaria" layoutX="553.0" layoutY="14.0" mnemonicParsing="false" onAction="#fecharImobiliaria" prefHeight="25.0" prefWidth="34.0" text="X" />
+      <Button fx:id="btInserir" layoutX="23.0" layoutY="542.0" mnemonicParsing="false" onAction="#adicionarImobiliaria" text="Inserir" />
+      <Button fx:id="btPesquisar" layoutX="88.0" layoutY="542.0" mnemonicParsing="false" text="Pesquisar" />
+      <Button fx:id="btAtualizar" layoutX="180.0" layoutY="542.0" mnemonicParsing="false" onAction="#atualizarImobiliaria" text="Atualizar" />
+      <Button fx:id="btDeletar" layoutX="270.0" layoutY="542.0" mnemonicParsing="false" onAction="#excluirImobiliaria" text="Deletar" />
+      <Label fx:id="lblCodigoCreci" layoutX="23.0" layoutY="110.0" text="Código Creci" />
+      <TextField fx:id="tfCodigoCreci" layoutX="23.0" layoutY="135.0" />
+      <Label fx:id="lblCodigoImobiliaria" layoutX="338.0" layoutY="110.0" text="Código Imobiliaria" />
+      <TextField fx:id="tfIdImobiliaria" layoutX="180.0" layoutY="135.0" />
+      <Label fx:id="lblFecharImboliaria" layoutX="652.0" layoutY="22.0" onMouseClicked="#fecharImobiliaria" text="Fechar" />
+      <TextField fx:id="tfPessoaId" layoutX="180.0" layoutY="195.0" />
+      <TextField fx:id="tfCodigoImobiliaria" layoutX="338.0" layoutY="135.0" />
+      <TextField fx:id="tfPessoaPj" layoutX="23.0" layoutY="195.0" />
+      <TextField fx:id="tfPagcomissao" layoutX="338.0" layoutY="195.0" />
+      <Label fx:id="lblIdImobiliaria" layoutX="176.0" layoutY="110.0" text="ID Imobiliaria" />
+      <Label fx:id="lblPessoaPj" layoutX="23.0" layoutY="171.0" text="Pessoa Juridica" />
+      <Label fx:id="lblPessoaId" layoutX="180.0" layoutY="171.0" text="ID pessoa" />
+      <Label fx:id="lblPagcomissao" layoutX="338.0" layoutY="171.0" text="Pagamento" />
    </children>
 </AnchorPane>
