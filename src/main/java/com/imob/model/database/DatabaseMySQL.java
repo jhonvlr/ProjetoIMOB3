@@ -19,7 +19,7 @@ public abstract class DatabaseMySQL implements Database{
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_imob","root","Matheus");
+            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_imob","root","");
             return connection;
 
         }

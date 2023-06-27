@@ -7,7 +7,6 @@ public class Imobiliaria extends PessoaJuridica {
     private int numero_Creci;
 
     public Imobiliaria(int id_Imobiliaria, int id_Codigo_imobiliaria, int numero_Creci) {
-        super();
         this.id_Imobiliaria = id_Imobiliaria;
         this.id_Codigo_imobiliaria = id_Codigo_imobiliaria;
         this.numero_Creci = numero_Creci;
@@ -36,5 +35,4 @@ public class Imobiliaria extends PessoaJuridica {
     public void setNumero_Creci(int numero_Creci) {
         this.numero_Creci = numero_Creci;
     }
-
 }

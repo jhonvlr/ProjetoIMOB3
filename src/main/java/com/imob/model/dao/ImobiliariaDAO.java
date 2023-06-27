@@ -26,7 +26,7 @@ public class ImobiliariaDAO {
     }
 
     public boolean inserirImobiliaria(Imobiliaria imobiliaria) throws SQLException {
-        String sql = "INSERT INTO tb_imobiliaria (id_Codigo_imobiliaria, numero_Creci, id_imobiliaria) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO tb_imobiliaria (id_Codigo_imobiliaria, numero_Creci, id_Imobiliaria) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, imobiliaria.getId_Codigo_imobiliaria());

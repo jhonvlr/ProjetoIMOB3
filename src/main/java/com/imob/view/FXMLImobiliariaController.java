@@ -60,6 +60,7 @@ public class FXMLImobiliariaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         imobiliariaDAO.setConnection(connection);
     }
 
@@ -113,6 +114,7 @@ public class FXMLImobiliariaController implements Initializable {
         }
     }
 
+    @FXML
     private List<Imobiliaria> buscarTodasImobiliaria() {
         try {
             return imobiliariaDAO.buscarTodasImobiliaria();
@@ -120,8 +122,5 @@ public class FXMLImobiliariaController implements Initializable {
             System.out.println("Erro ao buscar imobiliárias: " + e.getMessage());
             return null;
         }
-    }
-
-    public void pesquisarImobiliaria(ActionEvent actionEvent) {
     }
 }

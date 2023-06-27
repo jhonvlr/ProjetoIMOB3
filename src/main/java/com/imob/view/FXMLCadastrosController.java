@@ -57,19 +57,17 @@ public class FXMLCadastrosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML//método para abrir o FXMLCadPF
-    private void abrirFXMLCadPF(ActionEvent event)
-    {
-        try
-        {
+    private void abrirFXMLCadPF(ActionEvent event) {
+        try {
             Stage stage = new Stage();
 
             Parent root = FXMLLoader.load(getClass().getResource("FXMLCadPF.fxml"));
 
             Scene scene = new Scene(root);
-            
+
             //para retirar todos os botões de minimizar, maximizar e fechar
             stage.initStyle(StageStyle.UNDECORATED);
 
@@ -77,26 +75,22 @@ public class FXMLCadastrosController implements Initializable {
 
             stage.show();//abria a stage
 
-        } 
-        catch (IOException ex)
-        {
+        } catch (IOException ex) {
             Logger.getLogger(FXMLTelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-   
 
     @FXML
     private void abrirFXMLCadEstados(ActionEvent event) {
-        
-         try
-        {
+
+        try {
             Stage stageCadEstados = new Stage();
 
             Parent rootCadEstados = FXMLLoader.load(getClass().getResource("FXMLCadEstados.fxml"));
 
             Scene sceneCadEstados = new Scene(rootCadEstados);
-            
+
             //para retirar todos os botões de minimizar, maximizar e fechar
             stageCadEstados.initStyle(StageStyle.UNDECORATED);
 
@@ -104,24 +98,21 @@ public class FXMLCadastrosController implements Initializable {
 
             stageCadEstados.show();//abria a stage
 
-        } 
-        catch (IOException ex)
-        {
+        } catch (IOException ex) {
             Logger.getLogger(FXMLTelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @FXML
     private void abrirFXMLCadCidades(ActionEvent event) {
-        
-         try
-        {
+
+        try {
             Stage stageCadCidades = new Stage();
 
             Parent rootCadCidades = FXMLLoader.load(getClass().getResource("FXMLCidades.fxml"));
 
             Scene sceneCadCidades = new Scene(rootCadCidades);
-            
+
             //para retirar todos os botões de minimizar, maximizar e fechar
             stageCadCidades.initStyle(StageStyle.UNDECORATED);
 
@@ -129,17 +120,14 @@ public class FXMLCadastrosController implements Initializable {
 
             stageCadCidades.show();//abria a stage
 
-        } 
-        catch (IOException ex)
-        {
+        } catch (IOException ex) {
             Logger.getLogger(FXMLTelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @FXML
-    private void abrirFXMLImoveisRurais(ActionEvent event){
-        try
-        {
+    private void abrirFXMLImoveisRurais(ActionEvent event) {
+        try {
 
             Stage stageCadImoveisRu = new Stage();
 
@@ -153,16 +141,15 @@ public class FXMLCadastrosController implements Initializable {
             stageCadImoveisRu.setScene(sceneCadImoveisRu);
 
             stageCadImoveisRu.show();//abria a stage
-        }catch (IOException ex){
+        } catch (IOException ex) {
             Logger.getLogger(FXMLTelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
 
     @FXML
-    private void abrirFXMLTeste(ActionEvent event){
-        try
-        {
+    private void abrirFXMLTeste(ActionEvent event) {
+        try {
             Stage stageCadCidades = new Stage();
 
             Parent rootCadCidades = FXMLLoader.load(getClass().getResource("FXMLTeste.fxml"));
@@ -175,9 +162,25 @@ public class FXMLCadastrosController implements Initializable {
             stageCadCidades.setScene(sceneCadCidades);
 
             stageCadCidades.show();//abria a stage
-        }catch (IOException ex){
+        } catch (IOException ex) {
             Logger.getLogger(FXMLTelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @FXML
+    private void abrirFXMLImobiliaria(ActionEvent event) {
+        try {
+            Stage stageImobiliaria = new Stage();
+            Parent rootImobiliaria = FXMLLoader.load(getClass().getResource("FXMLImobiliaria.fxml"));
+            Scene sceneImobiliaria = new Scene(rootImobiliaria);
+
+            // Para remover todos os botões de minimizar, maximizar e fechar
+            stageImobiliaria.initStyle(StageStyle.UNDECORATED);
+
+            stageImobiliaria.setScene(sceneImobiliaria);
+            stageImobiliaria.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLCadastrosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
